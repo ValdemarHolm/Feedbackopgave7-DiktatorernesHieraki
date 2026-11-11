@@ -60,7 +60,7 @@ Programmet kontrollerer også om den enkelte diktator implmenterer PowerActions 
 * `private String name;` (Arvet fra Leader)
 * `private String country;` (Arvet fra Leader)
 * `private int yearsInPower;` (Arvet fra Leader)
-* `private String partyName;`
+* `private String partyName;` 
 
 #### Metoder inde i **PoliticalDictator** subklassen:
 * `public PoliticalDictator(String name, String country, int yearsInPower, String partyName);` (Konstruktør)
