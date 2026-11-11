@@ -1,79 +1,46 @@
-# **Feedbackopgave 7 - Diktatorernes hieraki**
+# Feedbackopgave 7 – Diktatorernes Hierarki
 
-## **Gruppemedlemmer:**
-Jonas, Oliver, Valdemar og Kasper
+Et objektorienteret Java-projekt, der modellerer et magthierarki gennem nedarvning, abstrakte klasser, interfaces og polymorfi.
 
-## **Projektbeskrivelse:**
-Vi har øvet os på at lave abstrakte klasser 
+## 📋 Projektbeskrivelse
 
-## **Hvordan køres programmet:**
+Formålet med projektet er at demonstrere central objektorienteret programmering (OOP) i Java. Programmet opbygger et hierarki af forskellige ledertyper (militære, politiske og AI-baserede diktatorer), hvor fælles egenskaber og adfærd deles via en abstrakt superklasse og et interface, mens specifikke handlinger og detaljer implementeres individuelt for hver ledertype.
 
+## 🏗️ Projektstruktur
 
-## **Klasser vi har implementeret samt deres felter og metoder:**
+Kildekoden er organiseret i `src/`-mappen med pakken `LeaderTypes` til domænemodellen:
 
-### **Leader** superklassen:
-#### Felter inde i **Leader** superklassen:
-* `private String name;`
-* `private String country;`
-* `private int yearsInPower;`
+```text
+Feedbackopgave7-DiktatorernesHieraki/
+├── src/
+│   ├── LeaderTypes/
+│   │   ├── Leader.java              # Abstrakt superklasse for alle ledere
+│   │   ├── PowerActions.java        # Interface for magthandlinger
+│   │   ├── MilitaryDictator.java    # Subklasse for militære diktatorer
+│   │   ├── PoliticalDictator.java   # Subklasse for politiske diktatorer
+│   │   └── AIDictator.java          # Subklasse for AI-diktatorer
+│   ├── LeaderManager.java           # Håndterer oprettelse og afvikling af ledere
+│   └── Main.java                    # Programmets indgangspunkt (main-metode)
+├── .gitignore                       # Ignorerede filer til Git
+└── README.md                        # Projektdokumentation
+```
 
-#### Metoder inde i **Leader** superklassen:
-* `public Leader(String name, String country, int yearsInPower);` (Konstruktør)
-* `public String getName();`
-* `public String getCountry();`
-* `public int getYearsInPower();`
-* `public void setName(String name);`
-* `public void setCountry(String country);`
-* `public void setYearsInPower(int yearsInPower);`
-* `public abstract void giveSpeech();`
-* `public void printDetails();`
+## ⚙️ Centrale koncepter & klasser
 
-### **PowerActions** interface:
-#### Metoder inde i **PowerActions** interface:
-* `public void implementPolicy();`
-* `public void repressOpposition();`
-* `public void holdParade();`
+* **`Leader` (Abstrakt superklasse):** Definerer de grundlæggende egenskaber for enhver leder (`name`, `country`, `yearsInPower`), metoden `printDetails()` samt den abstrakte metode `giveSpeech()`.
+* **`PowerActions` (Interface):** Fastlægger de fælles magthandlinger (`implementPolicy()`, `repressOpposition()`, `holdParade()`), som ledertyperne skal implementere.
+* **Subklasser (`MilitaryDictator`, `PoliticalDictator`, `AIDictator`):** Nedarver fra `Leader` og implementerer `PowerActions` med hver deres specialiserede felter (f.eks. militær rang eller politisk parti) og unikke adfærd.
+* **Polymorfi (`LeaderManager`):** Samler de forskellige ledertyper i en fælles `ArrayList<Leader>` og afvikler deres taler, detaljer og handlinger ensartet gennem programmet.
 
-### **MilitaryDictator** subklassen:
-#### Felter inde i **MilitaryDictator** subklassen:
-* `private String name;` (Arvet fra Leader)
-* `private String country;` (Arvet fra Leader)
-* `private int yearsInPower;` (Arvet fra Leader)
-* `private String militaryRank;`
+## 🚀 Sådan køres programmet
 
-#### Metoder inde i **MilitaryDictator** subklassen:
-* `public MilitaryDictator(String name, String country, int yearsInPower, String militaryRank);` (Konstruktør)
-* `@Override public void giveSpeech();` (Override af metode fra Leader)
-* `@Override public void implementPolicy();` (Override af metode fra PowerActions)
-* `@Override public void repressOpposition();` (Override af metode fra PowerActions)
-* `@Override public void holdParade();` (Override af metode fra PowerActions)
-* `@Override public void printDetails();` (Override af metode fra Leader)
+1. **Klon projektet:**
+   ```bash
+   git clone https://github.com
+   ```
+2. **Åbn i IDE:** Åbn projektmappen i **IntelliJ IDEA** (eller en anden Java-kompatibel IDE).
+3. **Kør koden:** Åbn `src/Main.java` og kør `main`-metoden.
 
-### **PoliticalDictator** subklassen:
-#### Felter inde i **PoliticalDictator** subklassen:
-* `private String name;` (Arvet fra Leader)
-* `private String country;` (Arvet fra Leader)
-* `private int yearsInPower;` (Arvet fra Leader)
-* `private String partyName;`
+## 👥 Bidragydere
 
-#### Metoder inde i **PoliticalDictator** subklassen:
-* `public PoliticalDictator(String name, String country, int yearsInPower, String partyName);` (Konstruktør)
-* `@Override public void giveSpeech();` (Override af metode fra Leader)
-* `@Override public void implementPolicy();` (Override af metode fra PowerActions)
-* `@Override public void repressOpposition();` (Override af metode fra PowerActions)
-* `@Override public void holdParade();` (Override af metode fra PowerActions)
-* `@Override public void printDetails();` (Override af metode fra Leader)
-
-### **LeaderManager** klassen:
-
-#### Metoder inde i **LeaderManager** klassen:
-* `public static ArrayList<Leader> createLeaders();`
-* `public static void addLeader(Leader newLeader, ArrayList<Leader> leaders);`
-* `public static void performActions(ArrayList<Leader> leaders);`
-
-
-
-## **Udfordringer ved projektet:**
-
-
-## **Tests vi har lavet:**
+* Jonas, Oliver, Valdemar og Kasper
