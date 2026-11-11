@@ -43,4 +43,4 @@ Feedbackopgave7-DiktatorernesHieraki/
 
 ## 👥 Bidragydere
 
-* Jonas, Oliver, Valdemar og Kasper
+* Jonas, Oliver og Kasper
