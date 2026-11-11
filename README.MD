@@ -4,10 +4,16 @@
 Jonas, Oliver, Valdemar og Kasper
 
 ## **Projektbeskrivelse:**
-Vi har øvet os på at lave abstrakte klasser 
+Dette projekt er en opgave, hvor vi har implementeret et hieraki af diktatorer. Vi har lavet en superklasse kaldet Leader, som indeholder de felter og metoder, som alle diktatorer har til fælles. Herefter har vi lavet to subklasser kaldet MilitaryDictator og PoliticalDictator, som nedarver fra superklassen Leader. Vi har også lavet et interface kaldet PowerActions, som indeholder metoder, som nogle af diktatorerne kan implementere.
 
 ## **Hvordan køres programmet:**
+Programmet starter i vores Main-klasse, hvor vi kalder metoden createLeaders(); fra klassen LeaderManager. Metoden opretter en ArrayList, som indeholder objekter af typen Leader. Herefter oprettes der fire forskellige diktatorobjekter, som består af 2 MilitaryDictator og to PoliticalDictator, der alle tilføjes til listen. Og da alle diktatortyperne nedarver fra superklassen Leader kan vi samle dem i samme ArrayList.
 
+Vi har tilføjet en ekstra diktator til ArrayList ved hjælp af metoden addLeader();. Her har vi oprettet en AIDictator.
+
+Så kalder vi metoden performActions(); som gennemgår alle diktatorerne i listen, ved hjælp af en for-each løkke. For hvert objekt bliver metoderne printDetails(); og giveSpeech(); kaldt. Her bruger vi polymorfi, da de forskellige diktatortyper har deres egne versioner af metoderne. Da giveSpeech(); er en abstrakt metode i superklassen Leader, vil programmet automatisk udføre den version af metoden som passer til den enkelte diktatortype og det samme gælder printDetails(); for de subklasser der har overskrevet metoden.
+
+Programmet kontrollerer også om den enkelte diktator implmenterer PowerActions interfacet og hvis diktatoren gør det så bliver metoderne implementPolicy(); , repressOpposition(); og holdParade(); også kaldt.
 
 ## **Klasser vi har implementeret samt deres felter og metoder:**
 
@@ -74,6 +80,7 @@ Vi har øvet os på at lave abstrakte klasser
 
 
 ## **Udfordringer ved projektet:**
-
+Implementering af instanceOf, samt at få det til at virke med vores arraylist.  
+Forståelse af polymorfi og hvordan man kan bruge det i praksis.
 
 ## **Tests vi har lavet:**
